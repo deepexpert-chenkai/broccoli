@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { cn } from '@bem-react/classname';
-
 import InviteModal from '../../components/invite-modal';
+import './index.scss';
 
 const invite = cn('invite');
 

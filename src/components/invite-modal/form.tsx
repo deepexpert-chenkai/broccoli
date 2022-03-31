@@ -47,15 +47,15 @@ export default function Form(props: IFormProps) {
         <input 
           role="name"
           placeholder="User Name"
-          { ...register('name', { required: true }) } 
+          {...register('name', { required: true })} 
         />
-        { errors.name && <p role="alert">User name is required.</p> }
+        {errors.name && <p role="alert">User name is required.</p>}
 
         <input 
           role="email"
           className={form('email')}
           placeholder="Email"
-          { ...register('email', { required: true, validate: value => validateEmail(value) }) }
+          {...register('email', { required: true, validate: value => validateEmail(value) })}
         />
         {errors.email && <p role="alert" >{ errors.email.type === 'required' ? 'Email is required.' : 'Invalid Email.'}</p>}
 
