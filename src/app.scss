@@ -1,4 +1,5 @@
-body {
-  margin: 0;
-  padding: 0;
-}
+@use './assets/style/reset.scss';
+@use './assets/style/variable.scss';
+@use './assets/style/global.scss';
+
+@use './pages/invite/index.scss';

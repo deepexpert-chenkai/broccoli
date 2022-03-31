@@ -26,6 +26,14 @@ module.exports = (env) => {
           use: [
             devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: { autoprefixer: {} },
+                },
+              },
+            },
             'sass-loader',
           ],
         },
@@ -43,7 +51,7 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        title: '3d',
+        title: 'BROCCOLI & CO.',
         template: 'src/assets/index.html',
       }),
       new MiniCssExtractPlugin({
@@ -53,7 +61,7 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.join(__dirname, 'dist'),
       compress: true,
-      port: 9000,
+      port: 3000,
     },
   };
 };
