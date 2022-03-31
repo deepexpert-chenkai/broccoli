@@ -6,7 +6,7 @@ const path = require('path');
 module.exports = (env) => {
   const devMode = env.NODE_ENV !== 'production';
   return {
-    mode: 'development',
+    mode: devMode ? 'development' : 'production',
     entry: './src/index.tsx',
     output: {
       path: `${__dirname}/dist`,

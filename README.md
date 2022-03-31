@@ -12,13 +12,13 @@ yarn
 yarn dev
 ```
 
-# Build
+## Build
 run commond bellow:
 ```
 yarn build
 ```
 
-# Test
+## Test
 run commond bellow:
 ```
 yarn test
