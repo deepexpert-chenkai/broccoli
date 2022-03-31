@@ -17,3 +17,9 @@ run commond bellow:
 ```
 yarn build
 ```
+
+# Test
+run commond bellow:
+```
+yarn test
+```

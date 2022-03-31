@@ -12,15 +12,10 @@ interface IModalProps {
 
 export default function Invite(props:React.PropsWithChildren<IModalProps>) {
   const { show, onClose, children } = props;
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-      setTimeout(() => { setVisible(show)} )
-  }, [show])
 
   return (
-    <div className={modal({ show: show || visible })}>
-      <div className={modal('mask', { visibile: visible && show })} onClick={onClose} />
+    <div className={modal({ show })}>
+      <div className={modal('mask')} onClick={onClose} />
       <div className={modal('content')}>
         {children}
       </div>

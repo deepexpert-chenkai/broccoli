@@ -1,5 +1,4 @@
 export const validateEmail = (email) => {
-  console.log('email: ', email);
   return !!String(email)
     .toLowerCase()
     .match(

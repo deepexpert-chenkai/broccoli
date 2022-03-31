@@ -28,7 +28,7 @@ export default function Form(props: IFormProps) {
     setIsLoading(true)
     
     axios.post('https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com/prod/fake-auth', data)
-    .then((data) => {
+    .then(() => {
       onSuccess();
     }).catch(error => {
       setApiError(error?.response?.data?.errorMessage || 'Something went wrong...')
@@ -45,26 +45,28 @@ export default function Form(props: IFormProps) {
       <form className={form('content')} onSubmit={handleSubmit(onSubmit)}>
         
         <input 
-          className={form('name')}
+          role="name"
           placeholder="User Name"
           { ...register('name', { required: true }) } 
         />
-        { errors.name && <p>User name is required.</p> }
+        { errors.name && <p role="alert">User name is required.</p> }
 
         <input 
+          role="email"
           className={form('email')}
           placeholder="Email"
           { ...register('email', { required: true, validate: value => validateEmail(value) }) }
         />
-        {errors.email && <p>{ errors.email.type === 'required' ? 'Email is required.' : 'Invalid Email.'}</p>}
+        {errors.email && <p role="alert" >{ errors.email.type === 'required' ? 'Email is required.' : 'Invalid Email.'}</p>}
 
         <input
+          role="confirmEmail"
           className={form('confirm')}
           placeholder="Confirm Email"
           {...register('confirmEmail', { required: true, validate: value => value === getValues('email') })}  
         />
         {errors.confirmEmail 
-          && <p>{ errors.confirmEmail.type === 'required' ? 'Confirm email is required.' : 'Confirm email should be same as Email.'}</p>}
+          && <p role="alert">{ errors.confirmEmail.type === 'required' ? 'Confirm email is required.' : 'Confirm email should be same as Email.'}</p>}
 
         <button className={form('btn', { sending: isLoading })} type="submit">
           {isLoading ? 'Sending, please wait' : 'Submit'}
