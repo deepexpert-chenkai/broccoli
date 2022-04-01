@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Modal from '../modal';
+import Modal from '../ui/modal';
 import Form from './form';
 import Success from './success';
 
 import './index.scss'
 
 
-enum Step {
+export enum Step {
   INVITE, // fill invite form
   SUCCESS, // submit success
 }

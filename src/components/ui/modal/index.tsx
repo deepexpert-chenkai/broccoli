@@ -10,14 +10,14 @@ interface IModalProps {
   onClose: ()=>void
 }
 
-export default function Invite(props:React.PropsWithChildren<IModalProps>) {
+export default function Modal(props:React.PropsWithChildren<IModalProps>) {
   const { show, onClose, children } = props;
 
   return (
     <div className={modal({ show })}>
       <div className={modal('mask')} onClick={onClose} />
       <div className={modal('content')}>
-        {children}
+        {show && children}
       </div>
     </div>
   );

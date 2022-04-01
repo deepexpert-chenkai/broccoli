@@ -19,9 +19,6 @@ jest.mock("axios", () => {
     }
   };
 });
-const wait = () => new Promise((resolve) => {
-  setTimeout(resolve, 100);
-})
 
 describe('Form', () => {
   const successFn = jest.fn();
@@ -80,7 +77,6 @@ describe('Form', () => {
     mockSubmit("Philip", "Philip@gmail.com", "Philip@gmail.com");
 
     expect(await screen.findAllByText("Sending, please wait")).toHaveLength(1);
-    await wait();
     expect(successFn).toHaveBeenCalledTimes(2);
   })
 
@@ -88,7 +84,6 @@ describe('Form', () => {
     mockSubmit("Philip", "no_res_error@test.com", "no_res_error@test.com");
 
     expect(await screen.findAllByText("Sending, please wait")).toHaveLength(1);
-    await wait();
     expect(successFn).toHaveBeenCalledTimes(2);
     expect(await screen.findAllByText("Something went wrong...")).toHaveLength(1);
   })
@@ -97,7 +92,6 @@ describe('Form', () => {
     mockSubmit("Philip", "error@test.com", "error@test.com");
 
     expect(await screen.findAllByText("Sending, please wait")).toHaveLength(1);
-    await wait();
     expect(successFn).toHaveBeenCalledTimes(2);
     expect(await screen.findAllByText("register error")).toHaveLength(1);
   })

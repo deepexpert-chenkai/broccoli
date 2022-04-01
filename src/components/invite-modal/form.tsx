@@ -24,6 +24,7 @@ export default function Form(props: IFormProps) {
 
   // submit form
   const onSubmit = (data) => {
+    if(isLoading) return;
     setApiError('')
     setIsLoading(true)
     
